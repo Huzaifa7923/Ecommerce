@@ -10,6 +10,7 @@ connectDB();
 const app=express();
 
 app.get('/',(req,res)=>{
+    console.log("ckjcnkjdscnd")
     res.send('API IS RUNNING')
 })
 
