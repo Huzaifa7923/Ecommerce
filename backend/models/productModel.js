@@ -22,7 +22,7 @@ const reviewSchema=mongoose.Schema({
     timestamps:true
 })
 const productSchema=mongoose.Schema({
-    user:{
+    user:{ //admin here
         type:mongoose.Schema.Types.ObjectId,
         required:true,
         ref:'User'
@@ -41,11 +41,13 @@ const productSchema=mongoose.Schema({
     },
     price:{
         type:Number,
-        required:true
+        required:true,
+        default:0
     },
     countInStock:{
         type:Number,
-        required:true
+        required:true,
+        default:0
     },
     rating:{
         type:Number,

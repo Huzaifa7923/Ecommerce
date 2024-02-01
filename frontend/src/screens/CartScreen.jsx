@@ -21,7 +21,7 @@ export const CartScreen = () => {
     };
 
     const checkoutHandler=()=>{
-        navigate('/payment')
+        navigate('/login?redirect=/shipping')
     }
     const removeHandler=(id)=>{
         console.log("inside removeHandler")

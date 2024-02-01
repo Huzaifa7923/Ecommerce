@@ -10,6 +10,19 @@ const notFound=(req,res,next)=>{
 const errorHandler = (err, req, res, next) => {
 
     console.log("inside error Handler")
+    // console.log(req.params);
+    // // Log information about the route
+    // console.log(`Route: ${req.method} ${req.originalUrl}`);
+    
+    // // Log route parameters
+    // console.log("Route Parameters:", req.params);
+
+    // // Log query parameters
+    // console.log("Query Parameters:", req.query);
+
+    // // Log request body
+    // console.log("Request Body:", req.body);
+
 
     let statusCode=res.statusCode===200?500:res.statusCode;
     let message=err.message;

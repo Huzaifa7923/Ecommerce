@@ -3,22 +3,19 @@ export const addDecimals=(num)=>{
 }
 
 export const updateCart=(state)=>{
-    let costPrice=0;
-    
-    for(let i=0;i<state.cartItems.length;i++){
-        const item=state.cartItems[i];
-        costPrice=costPrice+(item.price*item.qty*100)/100;
-    }
-    state.costPrice=addDecimals(costPrice)
 
-    const shippingPrice=costPrice>100?0:10;
+    const itemsPrice=state.cartItems.reduce((ac,item)=>ac+(item.price*100*item.qty)/100,0);
+
+    state.itemsPrice=addDecimals(itemsPrice)
+
+    const shippingPrice=itemsPrice>100?0:10;
     state.shippingPrice=addDecimals(shippingPrice);
 
-    const taxPrice=0.15*costPrice;
+    const taxPrice=0.15*itemsPrice;
     state.taxPrice=addDecimals(taxPrice);
 
     state.totalPrice=(
-        Number(state.costPrice)+
+        Number(state.itemsPrice)+
         Number(state.shippingPrice)+
         Number(state.taxPrice)
     ).toFixed(2);
@@ -27,3 +24,4 @@ export const updateCart=(state)=>{
 
     return state;
 }
+

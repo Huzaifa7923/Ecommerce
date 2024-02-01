@@ -19,10 +19,7 @@ router.route('/login').post(loginUser)
 router.route('/logout').post(logoutUser)
 router.route('/profile').get(protect,getUserProfile).put(protect,updateUserProfile)
 
-router.route('/users/:id').delete(protect,admin,deleteUser).get(protect,admin,getUserById).put(protect,admin,updateUser)
+router.route('/:id').delete(protect,admin,deleteUser).get(protect,admin,getUserById).put(protect,admin,updateUser)
+
 
 export default router
-
-
-
-

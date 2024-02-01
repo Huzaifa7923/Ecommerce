@@ -9,7 +9,7 @@ const cartSlice=createSlice({
     reducers:{
         addToCart:(state,action)=>{
             const item=action.payload;
-            console.log("inside addTocart Slice");
+            // console.log("inside addTocart Slice");
             //if item already in cart
             const existItem=state.cartItems.find((x)=>x._id===item._id)
             console.log(state.cartItems);
@@ -22,9 +22,22 @@ const cartSlice=createSlice({
         },
         removeItem:(state,action)=>{
             state.cartItems=state.cartItems.filter((it)=>it._id!==action.payload)
-         updateCart(state)
+            return updateCart(state)
+        },
+        addShippingAddress:(state,action)=>{
+            state.shippingAddress=action.payload;
+            localStorage.setItem('cart',JSON.stringify(state));
+        },
+        addPaymentMethod:(state,action)=>{
+            state.paymentMethod=action.payload
+            localStorage.setItem('cart',JSON.stringify(state));  
+        },
+        resetCart:()=>initialState,
+        clearCartItems:(state)=>{
+            state.cartItems=[];
+            return updateCart(state)
         }
     }
 })
-export const {addToCart,removeItem}=cartSlice.actions;
+export const {addToCart,removeItem,resetCart,addShippingAddress,addPaymentMethod,clearCartItems}=cartSlice.actions;
 export default cartSlice.reducer;
