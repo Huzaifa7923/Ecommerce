@@ -53,8 +53,8 @@ const createProduct=asyncHandler(async(req,res)=>{
 
 const updateProduct=asyncHandler(async(req,res)=>{
     const {name,price,description,image,brand,category,countInStock}=req.body;
-    console.log('velow')
-    console.log(req.params.id);
+    // console.log('velow')
+    // console.log(req.params.id);
     const product=await Product.findById(req.params.id);
 
     if(product){
@@ -96,23 +96,23 @@ const deleteProduct=asyncHandler(async(req,res)=>{
 
 // POST :/api/products/:id/reviews
 const createProductReview=asyncHandler(async(req,res)=>{
-    console.log('rrr')
+    // console.log('rrr')
     const {rating,comment} =req.body;
-    console.log('---')
-    console.log(req.params.id)
+    // console.log('---')
+    // console.log(req.params.id)
     const product=await Product.findById(req.params.id);
     
     if(product){
     const alreadyReviewed=product.reviews.find((r)=>r.user.toString()===req.user._id.toString())//have to do like this bcz reviewSchema cant use mongodb methods like findyId ,{findById implicitly convert id to objectId which is then searched}
-    console.log('+++')
-    console.log(req.user);
+    // console.log('+++')
+    // console.log(req.user);
 
     if(alreadyReviewed){
         res.status(400);
         throw new Error('Product already reviewed')
     }
 
-    console.log(req.user)
+    // console.log(req.user)
 
     const review={
         name:req.user.name,

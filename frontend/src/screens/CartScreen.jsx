@@ -24,7 +24,7 @@ export const CartScreen = () => {
         navigate('/login?redirect=/shipping')
     }
     const removeHandler=(id)=>{
-        console.log("inside removeHandler")
+        // console.log("inside removeHandler")
         dispatch(removeItem(id));
     }
     return (

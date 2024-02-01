@@ -9,8 +9,8 @@ import Loader from '../../components/Loader';
 const OrderListScreen = () => {
 
     const {data:orders,isLoading,error}=useGetOrdersQuery();
-    console.log(orders)
-    console.log('up')
+    // console.log(orders)
+    // console.log('up')
   return (
     <>
     {/* <Col md={9}>  */}

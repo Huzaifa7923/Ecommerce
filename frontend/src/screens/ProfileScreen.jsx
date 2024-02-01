@@ -123,7 +123,7 @@ const ProfileScreen = () => {
                   <td>{order.createdAt.substring(0,10)}</td>
                   <td>{order.totalPrice}</td>
                   {
-                    order.isPaid ? (<td>{order.isPaid.substring(0,10)}</td>):
+                    order.isPaid ? (<td>{order.paidAt.substring(0,10)}</td>):
                     <td>
                       <FaTimes style={{color:'red'}}></FaTimes>
                     </td>

@@ -26,7 +26,7 @@ const Header = () => {
   const logoutHandler=async()=>{
     try{
     await logoutApiCall().unwrap();
-    console.log('done')
+    // console.log('done')
     dispatch(logout());
     dispatch(resetCart());
     navigate('/login')

@@ -73,12 +73,12 @@ const getOrderById=asyncHandler(async(req,res)=>{
 
 const getOrders=asyncHandler(async(req,res)=>{
     const order=await Order.find().populate('user').select('-password');
-    console.log(order);
+    // console.log(order);
     res.status(200).json(order);
 })
 
 const updateOrderToPaid=asyncHandler(async(req,res)=>{
-    console.log('....Wweqewq'+req.params.id)
+    // console.log('....Wweqewq'+req.params.id)
     const order=await Order.findById(req.params.id);
 
     if(order){

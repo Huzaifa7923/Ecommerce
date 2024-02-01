@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import Loader from './Loader'
 const ProductCarousel = () => {
     const {data:products,isLoading,error} = useGetTopProductsQuery()
-    console.log('product CSL')
+    // console.log('product CSL')
   return (
     isLoading ? null : error?<Message variant='danger'>{error?.data?.message || error.error}</Message>:(
         <Carousel pause='hover' className='bg-dark mb-4'>

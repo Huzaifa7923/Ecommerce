@@ -27,11 +27,11 @@ const importData = async()=>{
 
         await Product.insertMany(sampleProducts);
 
-        console.log('data imported');
+        // console.log('data imported');
         process.exit();
 
     }catch(e){
-        console.log(e);
+        // console.log(e);
         process.exit(1);
     }
 }
@@ -41,10 +41,10 @@ const destroyData = async () => {
       await Product.deleteMany();
       await User.deleteMany();
   
-      console.log('Data Destroyed!');
+      // console.log('Data Destroyed!');
       process.exit();
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       process.exit(1);
     }
   };

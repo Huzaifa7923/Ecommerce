@@ -114,7 +114,7 @@ const getUsers=asyncHandler(async(req,res)=>{
 })
 const deleteUser=asyncHandler(async(req,res)=>{
     const user=await User.findById(req.params.id)
-    console.log('re')
+    // console.log('re')
     if(user){
         if(user.isAdmin){
             res.status(400);
