@@ -34,7 +34,7 @@ const logoutUser=(req,res)=>{
 }
 
 const registerUser=asyncHandler(async(req,res)=>{
-    const {name,email,password}=req.body;
+    const {name,email,password,isAdmin}=req.body;
 
     const existedUser=await User.findOne({email})
     if(existedUser){
@@ -45,7 +45,8 @@ const registerUser=asyncHandler(async(req,res)=>{
     const user=await User.create({
         name,
         email,
-        password
+        password,
+        isAdmin
     })
 
     if(user){
